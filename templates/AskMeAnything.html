@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ask Me Anything</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .container {
+            text-align: center;
+            max-width: 800px; /* Increased maximum width for the container */
+            padding: 40px;
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"],
+        input[type="submit"] {
+            padding: 20px;
+            font-size: 24px;
+            width: calc(100% - 40px);
+            margin-bottom: 30px;
+            border: 2px solid #007bff;
+            border-radius: 10px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            padding: 20px 40px;
+            font-size: 24px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .answer {
+            margin-top: 30px;
+            padding: 20px;
+            font-size: 24px; /* Increased font size for better readability */
+            background-color: #f9f9f9;
+            border: 2px solid #ddd; /* Increased border size for better visibility */
+            border-radius: 10px; /* Increased border radius for softer edges */
+            text-align: left;
+        }
+        .answer h2 {
+            margin-top: 0;
+            font-size: 28px; /* Increased font size for better emphasis */
+            margin-bottom: 10px; /* Increased margin bottom for better separation */
+        }
+
+        /* New CSS for loader */
+        .loader {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 16px solid #f3f3f3;
+            border-top: 16px solid #3498db;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Loader element -->
+        <div class="loader" id="loader"></div>
+
+        <h1 style="font-size: 32px;">Ask Me Anything</h1> <!-- Increased font size for heading -->
+        <form id="search-form" action="/ask_me_anything" method="POST">
+            <input type="text" name="query" placeholder="Ask your question..." style="padding: 20px; font-size: 24px; width: calc(100% - 40px); margin-bottom: 30px; border: 2px solid #007bff; border-radius: 10px; box-sizing: border-box;">
+            <br><br>
+            <input type="submit" value="Search" style="padding: 20px 40px; font-size: 24px; border: none; background-color: #007bff; color: #fff; border-radius: 10px; cursor: pointer; transition: background-color 0.3s ease;">
+        </form>
+        {% if answer %}
+            <div class="answer">
+                <h2>Answer:</h2>
+                <p>{{ answer }}</p>
+            </div>
+        {% endif %}
+    </div>
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+        // Show loader on form submit
+        $('#search-form').submit(function () {
+            $('#loader').show();
+        });
+    </script>
+</body>
+</html>

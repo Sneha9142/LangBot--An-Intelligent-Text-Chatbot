@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('https://media.licdn.com/dms/image/D5612AQEfyevEaS4mcw/article-cover_image-shrink_423_752/0/1661423414767?e=1720051200&v=beta&t=AbsAIMR6-7ujrQlcqZawBOJ0JlGJ4URg3EECQAbJims'); /* Replace 'background-image.jpg' with your image path */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        h1 {
+            font-size: 5em;
+            color: #FFFF00;
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin: 10px; /* Add space between buttons */
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <img src="https://www.langbot.io/static/logo-e25d2284fb87a18c49b69720338febc7.png" alt="Logo" class="logo">
+    <div class="button-container">
+        <button onclick="chatWithPDF()">Chat with PDF</button>
+        <button onclick="askMeAnything()">Ask me Anything</button>
+    </div>
+
+    <script>
+        function chatWithPDF() {
+            window.location.href = "/chat_with_pdf";
+        }
+
+        function askMeAnything() {
+            window.location.href = "/ask_me_anything";
+        }
+    </script>
+</body>
+</html>
